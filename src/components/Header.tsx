@@ -11,6 +11,7 @@ const Header = () => {
   const aboutRef = useRef<HTMLDivElement>(null)
   const buttonsRef = useRef<HTMLDivElement>(null)
   const stickersRef = useRef<HTMLDivElement>(null)
+  const videosRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
     const tl = gsap.timeline()
@@ -29,6 +30,7 @@ const Header = () => {
         "-=0.5",
       )
       .fromTo(aboutRef.current, { y: 50, opacity: 0 }, { y: 0, opacity: 1, duration: 0.8, ease: "power2.out" }, "-=0.3")
+      .fromTo(videosRef.current, { opacity: 0, y: 40 }, { opacity: 1, y: 0, duration: 1, ease: "power2.out" }, "-=0.4")
       .fromTo(
         buttonsRef.current?.children,
         { y: 50, opacity: 0 },
@@ -36,17 +38,23 @@ const Header = () => {
         "-=0.3",
       )
 
-    // Animación de stickers flotantes
     if (stickersRef.current) {
       const stickers = stickersRef.current.children
-      
-      // Animación inicial de entrada
-      gsap.fromTo(stickers, 
-        { scale: 2.4, opacity: 0, }, 
-        { scale: 3, opacity: 1, rotation: 0, duration: 1.5, stagger: 0.3, ease: "back.out(1.7)", delay: 2 }
+
+      gsap.fromTo(
+        stickers,
+        { scale: 2.4, opacity: 0 },
+        {
+          scale: 3,
+          opacity: 1,
+          rotation: 0,
+          duration: 1.5,
+          stagger: 0.3,
+          ease: "back.out(1.7)",
+          delay: 2,
+        },
       )
-      
-      // Animación de flotación continua
+
       Array.from(stickers).forEach((sticker, index) => {
         gsap.to(sticker, {
           y: "+=20",
@@ -55,7 +63,7 @@ const Header = () => {
           repeat: -1,
           yoyo: true,
           ease: "power1.inOut",
-          delay: index * 0.5
+          delay: index * 0.5,
         })
       })
     }
@@ -70,38 +78,30 @@ const Header = () => {
 
   return (
     <header ref={headerRef} className="min-h-screen flex items-center justify-center px-4 py-20 pt-32 relative overflow-hidden">
-      {/* Stickers flotantes en el fondo */}
+      {/* Stickers de fondo */}
       <div ref={stickersRef} className="absolute inset-0 pointer-events-none z-0">
-        {/* Sticker 1 - Bana */}
-        <img 
-          src="https://i.ibb.co/LDHktnX2/tuki3.png" 
-          alt="Sticker 1" 
+        <img
+          src="https://i.ibb.co/LDHktnX2/tuki3.png"
+          alt="Sticker 1"
           className="absolute w-20 h-20 md:w-24 md:h-24 opacity-100"
-          style={{ 
-            top: '15%', 
-            left: '10%',
-            filter: 'drop-shadow(0 4px 8px rgba(0,0,0,0.2))'
-          }}
+          style={{ top: "15%", left: "10%", filter: "drop-shadow(0 4px 8px rgba(0,0,0,0.2))" }}
         />
-        
-        {/* Sticker 2 - Jake */}
-        <img 
-          src="https://i.ibb.co/GQs9kDrJ/jake2.png" 
-          alt="Sticker 2" 
+        <img
+          src="https://i.ibb.co/GQs9kDrJ/jake2.png"
+          alt="Sticker 2"
           className="absolute w-16 h-16 md:w-20 md:h-20 opacity-100"
-          style={{ 
-            top: '25%', 
-            right: '15%',
-            filter: 'drop-shadow(0 4px 8px rgba(0,0,0,0.2))'
-          }}
+          style={{ top: "25%", right: "15%", filter: "drop-shadow(0 4px 8px rgba(0,0,0,0.2))" }}
         />
       </div>
 
       <div className="text-center max-w-4xl mx-auto relative z-10">
-        {/* Profile Picture */}
         <div ref={profileRef} className="mb-8">
           <div className="profile-picture">
-            <img src="https://i.ibb.co/nq3M5Py2/Perfil7.jpg" alt="Facundo Diaz - Animador 2D y Motion Graphics" crossOrigin="anonymous" />
+            <img
+              src="https://i.ibb.co/nq3M5Py2/Perfil7.jpg"
+              alt="Facundo Diaz"
+              crossOrigin="anonymous"
+            />
           </div>
         </div>
 
@@ -115,34 +115,61 @@ const Header = () => {
           >
             Facundo Diaz
           </h1>
-
-          <p
-            ref={subtitleRef}
-            className="text-2xl md:text-3xl text-white mb-8 font-handwritten drop-shadow-md"
-          >
+          <p ref={subtitleRef} className="text-2xl md:text-3xl text-white mb-8 font-handwritten drop-shadow-md">
             2D Animator & Motion Graphics artist
           </p>
         </div>
 
-        {/* About Me Section */}
-        <div ref={aboutRef} className="bg-[#FF7560]  p-8 shadow-[8px_8px_0_0_#000] mb-8 max-w-2xl mx-auto">
+        <div ref={aboutRef} className="bg-[#FF7560] p-8 shadow-[8px_8px_0_0_#000] mb-8 max-w-2xl mx-auto">
           <h3 className="text-2xl font-bold text-white mb-4">About Me</h3>
           <div className="profile-picture">
-            <img src="https://i.ibb.co/3m7WCpxs/foto-presentacion.jpg" alt="Facundo Diaz - Animador 2D y Motion Graphics" crossOrigin="anonymous" />
+            <img
+              src="https://i.ibb.co/3m7WCpxs/foto-presentacion.jpg"
+              alt="Facundo Diaz"
+              crossOrigin="anonymous"
+            />
           </div>
           <p className="text-black text-lg leading-relaxed">
-            Facundo Diaz is an artist specialized in 2d Character Animation, both rigged and traditional, Motion
-            Graphics and 3D animation. Also teacher at Arte en Foco Photography School. Studied film at the
-            Interamerican Open University, drawing at the Barocelli art academy and Blender at the National Technical
-            University. Currently working as both as a freelancer and as lead animator in the Wasted animated series,
-            running since 2024.
+            Facundo Diaz is a 2d Character Animator, both rigged and traditional. Motion Graphics, storyboard artist and illustrator. Also teacher at Arte en Foco Photography School. Studied film at the Interamerican Open University, drawing at the Barocelli art academy and Blender at the National Technical University.
+            Currently working as both a freelancer and as lead animator in the Wasted animated series, running since 2024.
           </p>
+        </div>
+
+        {/* Reels */}
+        <div ref={videosRef} className="flex flex-col md:flex-row justify-center items-start gap-6 mb-8">
+          <div className="w-full md:w-1/2 flex flex-col items-center">
+            <h4 className="text-white text-xl font-bold mb-2"> 2D Animation Reel</h4>
+            <div className="w-full aspect-video shadow-[8px_8px_0_0_#000]">
+              <iframe
+                className="w-full h-full"
+                src="https://www.youtube.com/embed/8cTRZ8GGu-s"
+                title="2D Animation Reel"
+                frameBorder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+              ></iframe>
+            </div>
+          </div>
+
+          <div className="w-full md:w-1/2 flex flex-col items-center">
+            <h4 className="text-white text-xl font-bold mb-2"> Motion Graphics Reel</h4>
+            <div className="w-full aspect-video shadow-[8px_8px_0_0_#000]">
+              <iframe
+                className="w-full h-full"
+                src="https://www.youtube.com/embed/9Dc2PtplbIE"
+                title="Motion Graphics Reel"
+                frameBorder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+              ></iframe>
+            </div>
+          </div>
         </div>
 
         <div ref={buttonsRef} className="flex justify-center items-center">
           <button
             onClick={downloadCV}
-            className="bg-[#EA6463] hover:bg-[#d55453] text-white px-8 py-4  text-lg font-bold transform hover:scale-105 transition-all duration-300 shadow-[8px_8px_0_0_#000] hover:shadow-xl"
+            className="bg-[#EA6463] hover:bg-[#d55453] text-white px-8 py-4 text-lg font-bold transform hover:scale-105 transition-all duration-300 shadow-[8px_8px_0_0_#000] hover:shadow-xl"
           >
             📄 Download CV
           </button>

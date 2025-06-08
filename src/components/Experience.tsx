@@ -17,6 +17,14 @@ const Experience = () => {
       link: "https://www.youtube.com/watch?v=Q8XKDVYBcQc",
     },
     {
+      title: "Character Animator",
+      company: "Dalenteam",
+      year: "2023",
+      description: "Storyboarded, adn did character animation for a pre-teen animated series",
+      link: "https://www.youtube.com/watch?v=gKvS2x8hyps&t=6s",
+
+    },
+    {
       title: "Lipsync and 2d character animator",
       company: "Pipalupa animation studio",
       year: "2022",
@@ -27,14 +35,6 @@ const Experience = () => {
       company: "Freelance",
       year: "2020 - 2021",
       description: "Storyboarded, designed and animated segments for a range of youtube projects",
-    },
-    {
-      title: "Character Animator",
-      company: "Dalenteam",
-      year: "2023",
-      description: "Storyboarded, adn did character animation for a pre-teen animated series",
-      link: "https://www.youtube.com/watch?v=gKvS2x8hyps&t=6s",
-
     },
     {
       title: "2D Animation Teacher",

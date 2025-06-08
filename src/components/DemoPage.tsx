@@ -33,7 +33,7 @@ const DemoPage = () => {
           videos: [
             {
               title: "Wasted - First Person Shot",
-              url: "https://www.youtube.com/embed/StrbbJch0-I",
+              url: "https://www.youtube.com/embed/aheIzZLgd7E",
               description:
                 "My best rig-based shot in my opinion. Not only was this made in the last episode I ever made for Wasted, with my technique as refined as possible, this also included a part animated in the first person, with a special head bobbing movement for the character's point of view.",
             },
@@ -44,12 +44,7 @@ const DemoPage = () => {
                 "Along with my love for gauchos, I decided to make the most complex design possible and give it a shot at a rigged walk. I also composed the music for this video.",
             },
             {
-              title: "Wasted Cops 1",
-              url: "https://www.youtube.com/embed/CiB4aXHohfs",
-              description: "Humans on Wasted! I wish these 2 cops had been given more screen time.",
-            },
-            {
-              title: "Wasted Cops 2",
+              title: "Wasted Cops",
               url: "https://www.youtube.com/embed/DO8olhpkUog",
               description: "Humans on Wasted! I wish these 2 cops had been given more screen time.",
             },
@@ -61,7 +56,7 @@ const DemoPage = () => {
             },
             {
               title: "Wasted Retrospective Sequence",
-              url: "https://www.youtube.com/embed/ZEBhUXyideA",
+              url: "https://www.youtube.com/embed/QbMMwVXTQWE",
               description:
                 "This stylized shot was made for a retrospective sequence in Wasted. Mounted and animated on After Effects.",
             },
@@ -81,7 +76,7 @@ const DemoPage = () => {
           videos: [
             {
               title: "Gaucho Horse-Riding Cycle",
-              url: "https://www.youtube.com/embed/8PvyLr1vgHw",
+              url: "https://www.youtube.com/embed/X_ScI0t51mE",
               description:
                 "I love gauchos, and at some point I motivated myself to try and animate a horse-riding cycle. It's not gonna be the last.",
             },
@@ -93,7 +88,7 @@ const DemoPage = () => {
             },
             {
               title: "Frankenstein's Monster",
-              url: "https://www.youtube.com/embed/1pkK9AGlHVM",
+              url: "https://www.youtube.com/embed/nU02y68_jBg",
               description:
                 "For a personal project I decided to make a more complex type of anatomy for a character. This was the result. My own interpretation of Frankenstein's monster.",
             },
@@ -105,7 +100,7 @@ const DemoPage = () => {
             },
             {
               title: "Eternaut Tribute",
-              url: "https://www.youtube.com/embed/pUSzUQukcTc",
+              url: "https://youtube.com/embed/ncwNK-qb6nI",
               description:
                 "For a social media post for Wasted I decided to make a stylized tribute of the Eternaut series.",
             },
@@ -156,47 +151,54 @@ const DemoPage = () => {
       title: "Motion Graphics",
       intro:
         "I became enamoured with Motion Graphics ever since I began teaching After Effects some time ago. The possibility to combine techniques and styles in a sort of moving collage frees the imagination to think of endless visual experiences. This motivated me to train myself beyond 2D into other areas such as 3D, photography, illustration and musical composition.",
-      videos: [
+      children: [
         {
-          title: "Brand Animation Test 1",
-          url: "https://www.youtube.com/embed/tUJxGQC-j-E",
-          description:
-            "Animation test made with real brands in mind, working with mixed techniques and a frenetic rhythm. This makes the result eye-catching, iconic and diverse in style.",
+          id: "brand-animation-tests",
+          title: "Brand Animation Tests",
+          intro:
+            "A series of animation tests made with real brands in mind, working with mixed techniques and a frenetic rhythm. These make the result eye-catching, iconic and diverse in style.",
+          videos: [
+            {
+              title: "Brand Animation Test 1",
+              url: "https://www.youtube.com/embed/tUJxGQC-j-E",
+              description:
+                "First test in the series - exploring dynamic brand integration with mixed media techniques.",
+            },
+            {
+              title: "Brand Animation Test 2",
+              url: "https://www.youtube.com/embed/eaolrFA8CVY",
+              description: "Second iteration focusing on rhythm and visual impact for brand storytelling.",
+            },
+            {
+              title: "Brand Animation Test 3",
+              url: "https://www.youtube.com/embed/FWuGNP4RLt0",
+              description: "Final test in the series, combining all learned techniques for maximum visual appeal.",
+            },
+          ],
         },
         {
-          title: "Brand Animation Test 2",
-          url: "https://www.youtube.com/embed/eaolrFA8CVY",
-          description:
-            "Animation test made with real brands in mind, working with mixed techniques and a frenetic rhythm. This makes the result eye-catching, iconic and diverse in style.",
-        },
-        {
-          title: "Brand Animation Test 3",
-          url: "https://www.youtube.com/embed/FWuGNP4RLt0",
-          description:
-            "Animation test made with real brands in mind, working with mixed techniques and a frenetic rhythm. This makes the result eye-catching, iconic and diverse in style.",
-        },
-        {
-          title: "Pixel Art Burger Animation",
-          url: "https://www.youtube.com/embed/A4PlrefxicU",
-          description:
-            "This animation was based off the pixel-art illustration made by Jack Haege. I wanted to make it an explosion in color and editing. The whole burger is made in 3D and the ketchup and mustard are 2D hand-drawn animations.",
-        },
-        {
-          title: "Corporate Video Intro",
-          url: "https://www.youtube.com/embed/1pj_a-qQ-NA",
-          description:
-            "This is an intro for a corporate video presentation which mixes 3D models and 2D elements, as well as music and sound design by me.",
-        },
-        {
-          title: "Photography School Logo",
-          url: "https://www.youtube.com/embed/mKRa5luvzzk",
-          description:
-            "This is a logo animation made for the photography school where I teach animation and motion graphics.",
-        },
-        {
-          title: "7-Up Commercial Concept",
-          url: "https://www.youtube.com/embed/B5m4yIf25e4",
-          description: "Very simple and fine animation I made as a hypothetical 7-up commercial.",
+          id: "motion-graphics-projects",
+          title: "Motion Graphics Projects",
+          videos: [
+            {
+              title: "Pixel Art Burger Animation",
+              url: "https://www.youtube.com/embed/A4PlrefxicU",
+              description:
+                "This animation was based off the pixel-art illustration made by Jack Haege. I wanted to make it an explosion in color and editing. The whole burger is made in 3D and the ketchup and mustard are 2D hand-drawn animations.",
+            },
+            {
+              title: "Corporate Video Intro",
+              url: "https://www.youtube.com/embed/1pj_a-qQ-NA",
+              description:
+                "This is an intro for a corporate video presentation which mixes 3D models and 2D elements, as well as music and sound design by me.",
+            },
+            {
+              title: "Photography School Logo",
+              url: "https://www.youtube.com/embed/mKRa5luvzzk",
+              description:
+                "This is a logo animation made for the photography school where I teach animation and motion graphics.",
+            },
+          ],
         },
       ],
     },
@@ -211,19 +213,25 @@ const DemoPage = () => {
           title: "Ilustration Portfolio",
           videos: [
             {
+              title: "Fashion inspired desing",
+              url: "https://i.ibb.co/gY78MmT/1-1dise-os-juntos.png",
+              description: "Designs for an upcoming project in the form of a commercial, involving this new style.",
+            },
+            {
               title: "Wasted Promotional Art 1",
-              url: "https://i.ibb.co/pjk6vk1Q/1-Dibujo-jake-kill-v2.png",
-              description: "Promotional material for the Wasted animated series. Experimenting with lineal style.",
+              url: "https://i.ibb.co/297mZS4/1-Dibujo-jake-kill-v2.png",
+              description:
+                "Promotional material for the Wasted animated series. Experimenting with painting-like style.",
             },
             {
               title: "Wasted Promotional Art 2",
-              url: "https://i.ibb.co/5xs411DR/2-illust-v5.png",
+              url: "https://i.ibb.co/Myc6jWgY/2-illust-v5.png",
               description:
                 "Promotional material for the Wasted animated series. Experimenting with painting-like style.",
             },
             {
               title: "Wasted Promotional Art 3",
-              url: "https://i.ibb.co/MDpf1sgd/5-final-titulo-2.png",
+              url: "https://i.ibb.co/btYY0MT/3-tuki-cogo-gallinas-v1.png",
               description: "Promotional material for the Wasted animated series. Different experimental style.",
             },
             {
@@ -232,18 +240,18 @@ const DemoPage = () => {
               description: "Concept art made for a personal project involving the local 'Gaucho' figure.",
             },
             {
-              title: "Live-Action Project Poster 1",
-              url: "https://i.ibb.co/Lz4DxkqK/6-Entre-Plumas-poster.png",
+              title: "Live-Action Project Poster",
+              url: "https://i.ibb.co/dwLn32tg/pombero.png",
               description: "Poster made for a live-action project still in pre-production.",
             },
             {
               title: "Thesis Project Poster",
-              url: "https://i.ibb.co/0pbr7qFK/7-imilia-conepto1.png",
+              url: "https://i.ibb.co/fzb9GzDT/6-Entre-Plumas-poster.png",
               description: "Poster made for my thesis project using the same team and techniques.",
             },
             {
               title: "Commission Work",
-              url: "https://i.ibb.co/Z1pw7gj8/1-1dise-os-juntos.png",
+              url: "https://i.ibb.co/67CbCmhg/7-imilia-conepto1.png",
               description: "Commission for a project in pre-production.",
             },
           ],
@@ -385,6 +393,12 @@ const DemoPage = () => {
         videoContent.style.transition = "all 0.5s ease-out"
         videoContent.style.transform = "scale(1)"
         videoContent.style.opacity = "1"
+
+        // Reset scroll position when changing sections
+        const videoContainer = document.querySelector(".video-content .overflow-y-auto")
+        if (videoContainer) {
+          videoContainer.scrollTop = 0
+        }
       }, 50)
     }
   }
@@ -497,7 +511,7 @@ const DemoPage = () => {
           </div>
 
           {/* Video Display */}
-          <div className="video-panel bg-[#FF9160] p-8 shadow-[8px_8px_0_0_#000] min-h-[600px]">
+          <div className="video-panel bg-[#FF9160] p-4 md:p-8 shadow-[8px_8px_0_0_#000] min-h-[500px] md:min-h-[600px] overflow-hidden">
             {selectedNode ? (
               <div className="video-content">
                 <h3 className="text-2xl font-bold text-white mb-4 text-center flex items-center justify-center">
@@ -511,7 +525,13 @@ const DemoPage = () => {
                   </div>
                 )}
 
-                <div className="space-y-6 max-h-96 overflow-y-auto pr-2">
+                <div
+                  className="space-y-6 overflow-y-auto pr-2 custom-scrollbar"
+                  style={{
+                    maxHeight: "calc(100vh - 300px)",
+                    minHeight: "300px",
+                  }}
+                >
                   {selectedNode.videos?.map((video, index) => renderVideoContent(video, index))}
                 </div>
               </div>
@@ -532,25 +552,55 @@ const DemoPage = () => {
       {/* Image Preview Modal */}
       {selectedImage && (
         <div
-          className="fixed inset-0 bg-black/90 flex items-center justify-center z-50 p-4"
+          className="fixed inset-0 bg-black/90 flex items-center justify-center z-50 p-4 md:p-8"
           onClick={closeImagePreview}
         >
-          <div className="relative max-w-full max-h-full">
+          <div className="relative w-full max-w-5xl max-h-[90vh] bg-black/50 rounded-lg overflow-hidden">
             <button
-              onClick={closeImagePreview}
-              className="absolute -top-12 right-0 text-white text-2xl hover:text-gray-300 transition-colors"
+              onClick={(e) => {
+                e.stopPropagation()
+                closeImagePreview()
+              }}
+              className="absolute top-2 right-2 text-white bg-black/50 hover:bg-black/80 rounded-full p-2 text-xl hover:text-gray-300 transition-colors z-10"
+              aria-label="Close preview"
             >
-              ✕ Close
+              ✕
             </button>
-            <img
-              src={selectedImage || "/placeholder.svg"}
-              alt="Preview"
-              className="max-w-full max-h-full object-contain"
-              crossOrigin="anonymous"
-            />
+            <div className="w-full h-full flex items-center justify-center p-2 md:p-4">
+              <img
+                src={selectedImage || "/placeholder.svg"}
+                alt="Preview"
+                className="max-w-full max-h-[80vh] object-contain rounded shadow-lg"
+                crossOrigin="anonymous"
+              />
+            </div>
           </div>
         </div>
       )}
+
+      {/* Custom scrollbar styles */}
+      <style jsx global>{`
+        .custom-scrollbar::-webkit-scrollbar {
+          width: 8px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+          background: rgba(255, 255, 255, 0.1);
+          border-radius: 10px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+          background: rgba(255, 255, 255, 0.3);
+          border-radius: 10px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+          background: rgba(255, 255, 255, 0.5);
+        }
+        @media (max-width: 768px) {
+          .custom-scrollbar {
+            max-height: 60vh !important;
+            -webkit-overflow-scrolling: touch;
+          }
+        }
+      `}</style>
     </div>
   )
 }

@@ -37,7 +37,7 @@ const AnimatedBackground = () => {
       style={{ zIndex: -10 }}
     >
       {/* Animated polka dots */}
-      {Array.from({ length: 20 }).map((_, index) => (
+      {Array.from({ length: 40 }).map((_, index) => (
         <div
           key={index}
           ref={(el) => el && (dotsRef.current[index] = el)}
@@ -52,7 +52,7 @@ const AnimatedBackground = () => {
       {/* Additional decorative elements */}
       <div className="absolute top-10 left-10 w-8 h-8 bg-pink-300/30 rounded-full animate-bounce" />
       <div
-        className="absolute top-20 right-20 w-6 h-6 bg-purple-300/30 rounded-full animate-bounce"
+        className="absolute top-20 right-20 w-12 h-12 bg-purple-300/30 rounded-full animate-bounce"
         style={{ animationDelay: "1s" }}
       />
       <div
