@@ -20,22 +20,18 @@ interface TreeNode {
 const toYouTubeEmbed = (url: string): string | null => {
   try {
     const u = new URL(url)
-    // youtu.be/<id>
     if (u.hostname.includes("youtu.be")) {
       const id = u.pathname.replace("/", "")
       return id ? `https://www.youtube-nocookie.com/embed/${id}` : null
     }
-    // /shorts/<id>
     if (u.hostname.includes("youtube.com") && u.pathname.includes("/shorts/")) {
       const id = u.pathname.split("/shorts/")[1]?.split("/")[0]
       return id ? `https://www.youtube-nocookie.com/embed/${id}` : null
     }
-    // watch?v=<id>
     if (u.hostname.includes("youtube.com") && u.searchParams.get("v")) {
       const id = u.searchParams.get("v")!
       return `https://www.youtube-nocookie.com/embed/${id}`
     }
-    // /embed/<id>
     if (u.pathname.includes("/embed/")) {
       const id = u.pathname.split("/embed/")[1]?.split("/")[0]
       return id ? `https://www.youtube-nocookie.com/embed/${id}` : null
@@ -46,17 +42,23 @@ const toYouTubeEmbed = (url: string): string | null => {
   }
 }
 
-// detectar si es imagen (para renderizar como tile de imagen)
 const isImageUrl = (url: string) => {
   const lower = url.toLowerCase()
-  return lower.includes("i.ibb.co") || lower.endsWith(".png") || lower.endsWith(".jpg") || lower.endsWith(".jpeg") || lower.endsWith(".webp") || lower.endsWith(".gif")
+  return (
+    lower.includes("i.ibb.co") ||
+    lower.endsWith(".png") ||
+    lower.endsWith(".jpg") ||
+    lower.endsWith(".jpeg") ||
+    lower.endsWith(".webp") ||
+    lower.endsWith(".gif")
+  )
 }
 
 const DemoPage = () => {
   const pageRef = useRef<HTMLDivElement>(null)
   const [selectedImage, setSelectedImage] = useState<string | null>(null)
 
-  // === DEMO REELS (ya pegados por vos) ===
+  // DEMO REELS
   const REEL_2D_URL = "https://www.youtube.com/embed/zx1XHP1iu-c"
   const REEL_MG_URL = "https://www.youtube.com/embed/XD3iwdQanhc"
 
@@ -65,9 +67,8 @@ const DemoPage = () => {
     { title: "Motion Graphics Reel", url: REEL_MG_URL },
   ]
 
-  // === DATA (orden: Animation → Motion Graphics → Ilustration → StoryBoard) ===
+  // DATA (orden: Animation → Motion Graphics → Ilustration → StoryBoard)
   const [treeData, setTreeData] = useState<TreeNode[]>([
-    // 1) Animation
     {
       id: "animacion",
       title: "Animation",
@@ -92,7 +93,6 @@ const DemoPage = () => {
           intro:
             "Traditional animation has always been my main focus of study, and although I always knew to diversify my toolkit with broader techniques, traditional has a special place in my heart. It's as good as it comes.",
           videos: [
-            // Nuevo primero
             {
               title: "Clothing Presentation – Mixed Techniques",
               url: "https://youtu.be/xOWdBrKuUCU",
@@ -111,17 +111,13 @@ const DemoPage = () => {
       ],
     },
 
-    // 2) Motion Graphics (unificado + nuevos al final)
     {
       id: "motion-graphics",
       title: "Motion Graphics",
       intro:
         "I became enamoured with Motion Graphics ever since I began teaching After Effects some time ago. The possibility to combine techniques and styles in a sort of moving collage frees the imagination to think of endless visual experiences.",
       videos: [
-        // ⬇️ Nuevo PRIMERO (embed que pasaste)
         { title: "Motion Graphics – Intro", url: "https://youtu.be/FfNwveF9LOA" },
-    
-        // (resto como ya los tenías)
         { title: "Brand Animation Test 1", url: "https://www.youtube.com/embed/tUJxGQC-j-E" },
         { title: "Brand Animation Test 2", url: "https://www.youtube.com/embed/eaolrFA8CVY" },
         { title: "Brand Animation Test 3", url: "https://www.youtube.com/embed/FWuGNP4RLt0" },
@@ -134,9 +130,7 @@ const DemoPage = () => {
         { title: "Snack Animation 2", url: "https://youtube.com/shorts/d8-7Jd1hOe0?feature=share" },
       ],
     },
-    
 
-    // 3) Ilustration
     {
       id: "ilustracion",
       title: "Ilustration",
@@ -146,13 +140,11 @@ const DemoPage = () => {
         {
           id: "portfolio-ilustraciones",
           title: "Ilustration Portfolio",
-          // SIN descripciones, todas seguidas (nuevas al inicio)
           videos: [
             { title: "", url: "https://i.ibb.co/5hJdZRzP/Concepto-moto-bici.png" },
             { title: "", url: "https://i.ibb.co/7Jjqh2sv/6-Concepto-psj-paloma.png" },
             { title: "", url: "https://i.ibb.co/gLvmfKF5/Hoja-psj.png" },
             { title: "", url: "https://i.ibb.co/cXK8N6qc/concepto-auto.png" },
-
             { title: "", url: "https://i.ibb.co/gY78MmT/1-1dise-os-juntos.png" },
             { title: "", url: "https://i.ibb.co/297mZS4/1-Dibujo-jake-kill-v2.png" },
             { title: "", url: "https://i.ibb.co/Myc6jWgY/2-illust-v5.png" },
@@ -183,7 +175,6 @@ const DemoPage = () => {
       ],
     },
 
-    // 4) StoryBoard
     {
       id: "storyboard",
       title: "StoryBoard",
@@ -203,10 +194,8 @@ const DemoPage = () => {
     const page = pageRef.current
     if (!page) return
 
-    // Reset scroll
     window.scrollTo(0, 0)
 
-    // Entrada de página
     page.style.opacity = "0"
     page.style.transform = "translateY(20px)"
     setTimeout(() => {
@@ -215,7 +204,6 @@ const DemoPage = () => {
       page.style.transform = "translateY(0)"
     }, 100)
 
-    // Animar nodos del árbol
     const treeNodes = document.querySelectorAll(".tree-node")
     treeNodes.forEach((node, index) => {
       const el = node as HTMLElement
@@ -228,7 +216,6 @@ const DemoPage = () => {
       }, 300 + index * 100)
     })
 
-    // Animar panel
     const videoPanel = document.querySelector(".video-panel") as HTMLElement
     if (videoPanel) {
       videoPanel.style.transform = "translateX(100px)"
@@ -300,30 +287,28 @@ const DemoPage = () => {
     )
   }
 
-  // Tile de imagen (sin textos)
-  const renderImageTile = (item: VideoItem, index: number) => {
-    return (
-      <button
-        key={`img-${index}`}
-        className="relative bg-black rounded-xl overflow-hidden group"
-        onClick={() => openImagePreview(item.url)}
-        title="Open image"
-      >
-        <div className="aspect-square bg-gray-900">
-          <img
-            src={item.url || "/placeholder.svg"}
-            alt="Artwork"
-            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-            crossOrigin="anonymous"
-            referrerPolicy="no-referrer"
-          />
-        </div>
-      </button>
-    )
-  }
+  // Imagen (tile) sin textos
+  const renderImageTile = (item: VideoItem, index: number) => (
+    <button
+      key={`img-${index}`}
+      className="relative bg-black rounded-xl overflow-hidden group"
+      onClick={() => openImagePreview(item.url)}
+      title="Open image"
+    >
+      <div className="aspect-square bg-gray-900">
+        <img
+          src={item.url || "/placeholder.svg"}
+          alt="Artwork"
+          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+          crossOrigin="anonymous"
+          referrerPolicy="no-referrer"
+        />
+      </div>
+    </button>
+  )
 
-  // Tile de video (sin textos, sin descripción)
-  const renderVideoTile = (item: VideoItem, index: number) => {
+  // Video en LISTA (uno debajo del otro, sin textos)
+  const renderVideoListItem = (item: VideoItem, index: number) => {
     const embedUrl = toYouTubeEmbed(item.url) || item.url
     return (
       <div key={`vid-${index}`} className="bg-black rounded-xl overflow-hidden">
@@ -342,40 +327,30 @@ const DemoPage = () => {
     )
   }
 
- // Render galería mixta: detecta imágenes o videos y arma grilla sin textos
-const renderGalleryGrid = (items: VideoItem[] = []) => {
-  return (
-    <div
-      className="overflow-y-auto pr-2 custom-scrollbar"
-      style={{ maxHeight: "calc(100vh - 300px)", minHeight: "300px" }}
-    >
-      <div className="grid grid-cols-2 gap-4">
-        {items.map((it, idx) =>
-          isImageUrl(it.url) ? (
-            // Imágenes (sin cambios)
-            renderImageTile(it, idx)
-          ) : (
-            // Videos con nuevo formato 3:2
-            <div key={`vid-${idx}`} className="bg-black rounded-xl overflow-hidden">
-              <div className="aspect-[3/2]">
-                <iframe
-                  src={toYouTubeEmbed(it.url) || it.url}
-                  title={`video-${idx}`}
-                  loading="lazy"
-                  referrerPolicy="strict-origin-when-cross-origin"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                  allowFullScreen
-                  className="w-full h-full"
-                />
-              </div>
-            </div>
-          )
+  // Galería mixta: videos en LISTA (stack), imágenes en grilla
+  const renderGallery = (items: VideoItem[] = []) => {
+    const videos = items.filter((it) => !isImageUrl(it.url))
+    const images = items.filter((it) => isImageUrl(it.url))
+
+    return (
+      <div
+        className="overflow-y-auto pr-2 custom-scrollbar"
+        style={{ maxHeight: "calc(100vh - 300px)", minHeight: "300px" }}
+      >
+        {videos.length > 0 && (
+          <div className="space-y-4">
+            {videos.map((v, idx) => renderVideoListItem(v, idx))}
+          </div>
+        )}
+
+        {images.length > 0 && (
+          <div className={videos.length > 0 ? "mt-6 grid grid-cols-2 md:grid-cols-3 gap-4" : "grid grid-cols-2 md:grid-cols-3 gap-4"}>
+            {images.map((img, idx) => renderImageTile(img, idx))}
+          </div>
         )}
       </div>
-    </div>
-  )
-}
-
+    )
+  }
 
   return (
     <div ref={pageRef} className="min-h-screen py-20 px-4 pt-32">
@@ -386,7 +361,7 @@ const renderGalleryGrid = (items: VideoItem[] = []) => {
           <p className="text-white text-xl opacity-90">Explore my work organized by different categories</p>
         </div>
 
-        {/* === DEMO REELS: fila propia, lado a lado === */}
+        {/* Demo Reels: fila propia */}
         {featuredReels.some((r) => r.url) && (
           <div className="mb-12">
             <h3 className="text-2xl font-bold text-white flex items-center mb-6">
@@ -430,7 +405,7 @@ const renderGalleryGrid = (items: VideoItem[] = []) => {
             {treeData.map((node) => renderTreeNode(node))}
           </div>
 
-          {/* Right: Gallery Display (imágenes y videos en grilla, sin descripciones) */}
+          {/* Right: Display */}
           <div className="video-panel bg-[#FF9160] p-4 md:p-8 shadow-[8px_8px_0_0_#000] min-h-[500px] md:min-h-[600px] overflow-hidden">
             {selectedNode ? (
               <div className="video-content">
@@ -441,7 +416,7 @@ const renderGalleryGrid = (items: VideoItem[] = []) => {
                   {selectedNode.title}
                 </h3>
 
-                {/* Intro visible sólo si no es ilustración */}
+                {/* Intro solo para no-ilustración */}
                 {selectedNode.intro &&
                   !(selectedNode.id === "portfolio-ilustraciones" || selectedNode.id === "dibujo-figura") && (
                     <div className="bg-white/10 rounded-3xl p-4 mb-6">
@@ -449,8 +424,8 @@ const renderGalleryGrid = (items: VideoItem[] = []) => {
                     </div>
                   )}
 
-                {/* Galería mixta sin descripciones */}
-                {renderGalleryGrid(selectedNode.videos)}
+                {/* Videos en LISTA + imágenes en GRID */}
+                {renderGallery(selectedNode.videos)}
               </div>
             ) : (
               <div className="text-center py-20 flex flex-col items-center justify-center h-full">
