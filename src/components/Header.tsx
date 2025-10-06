@@ -71,7 +71,7 @@ const Header = () => {
 
   const downloadCV = () => {
     window.open(
-      "https://download1584.mediafire.com/xzg8jk98swvgJvZ0QXAWlylbX_qdhtDF_zbdRdaIwivshtnAm3TwsR-mhvD616nCRN7lC0p8zupdOwlD6n1Y5-EtfCHPFPrb1Ot6EDMvRtNvFbePF9MnBq_j6eldQAlrR6m7buzdULeQp0myCsUvyOfqS0Y6JefTR9IXaukBtAce5A/fnn8uvf6uq976ih/Facundo+D%C3%ADaz+-+Resume+2025+%281%29.pdf",
+      "https://download1085.mediafire.com/hd428jprjtxggY3SuZo5HV_0Qemy87bjGlRl1oZvVgKWak--v-VhB7rcRXlOKDwvgkHeAwsCmUU51efokOl2i04wrQpWe5InABPzEkq7lyQfbbLxZMlRrjpnr5ql_FMWYErJ68XAbRRUcxEnmizEmNMxdiPE-HABo6H1832Iw_jcvQ/fnn8uvf6uq976ih/Facundo+D%C3%ADaz+-+Resume+2025+%281%29.pdf",
       "_blank",
     )
   }
@@ -142,7 +142,7 @@ const Header = () => {
             <div className="w-full aspect-video shadow-[8px_8px_0_0_#000]">
               <iframe
                 className="w-full h-full"
-                src="https://www.youtube.com/embed/8cTRZ8GGu-s"
+                src="https://www.youtube.com/embed/zx1XHP1iu-c"
                 title="2D Animation Reel"
                 frameBorder="0"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
@@ -156,7 +156,7 @@ const Header = () => {
             <div className="w-full aspect-video shadow-[8px_8px_0_0_#000]">
               <iframe
                 className="w-full h-full"
-                src="https://www.youtube.com/embed/9Dc2PtplbIE"
+                src="https://www.youtube.com/embed/XD3iwdQanhc"
                 title="Motion Graphics Reel"
                 frameBorder="0"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
