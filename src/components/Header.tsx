@@ -11,7 +11,7 @@ const Header = () => {
   const aboutRef = useRef<HTMLDivElement>(null)
   const buttonsRef = useRef<HTMLDivElement>(null)
   const stickersRef = useRef<HTMLDivElement>(null)
-  const videosRef = useRef<HTMLDivElement>(null)
+  const videosRef = useRef<HTMLDivDivElement>(null)
 
   useEffect(() => {
     const tl = gsap.timeline()
@@ -69,11 +69,14 @@ const Header = () => {
     }
   }, [])
 
+  // ✅ Nueva función de descarga local
   const downloadCV = () => {
-    window.open(
-      "https://download1085.mediafire.com/hd428jprjtxggY3SuZo5HV_0Qemy87bjGlRl1oZvVgKWak--v-VhB7rcRXlOKDwvgkHeAwsCmUU51efokOl2i04wrQpWe5InABPzEkq7lyQfbbLxZMlRrjpnr5ql_FMWYErJ68XAbRRUcxEnmizEmNMxdiPE-HABo6H1832Iw_jcvQ/fnn8uvf6uq976ih/Facundo+D%C3%ADaz+-+Resume+2025+%281%29.pdf",
-      "_blank",
-    )
+    const link = document.createElement("a")
+    link.href = "/facundoCv.pdf" // archivo dentro de /public
+    link.download = "Facundo_Diaz_CV.pdf" // nombre con el que se descargará
+    document.body.appendChild(link)
+    link.click()
+    document.body.removeChild(link)
   }
 
   return (
@@ -138,7 +141,7 @@ const Header = () => {
         {/* Reels */}
         <div ref={videosRef} className="flex flex-col md:flex-row justify-center items-start gap-6 mb-8">
           <div className="w-full md:w-1/2 flex flex-col items-center">
-            <h4 className="text-white text-xl font-bold mb-2"> 2D Animation Reel</h4>
+            <h4 className="text-white text-xl font-bold mb-2">2D Animation Reel</h4>
             <div className="w-full aspect-video shadow-[8px_8px_0_0_#000]">
               <iframe
                 className="w-full h-full"
@@ -152,7 +155,7 @@ const Header = () => {
           </div>
 
           <div className="w-full md:w-1/2 flex flex-col items-center">
-            <h4 className="text-white text-xl font-bold mb-2"> Motion Graphics Reel</h4>
+            <h4 className="text-white text-xl font-bold mb-2">Motion Graphics Reel</h4>
             <div className="w-full aspect-video shadow-[8px_8px_0_0_#000]">
               <iframe
                 className="w-full h-full"
@@ -166,14 +169,27 @@ const Header = () => {
           </div>
         </div>
 
-        <div ref={buttonsRef} className="flex justify-center items-center">
-          <button
-            onClick={downloadCV}
-            className="bg-[#EA6463] hover:bg-[#d55453] text-white px-8 py-4 text-lg font-bold transform hover:scale-105 transition-all duration-300 shadow-[8px_8px_0_0_#000] hover:shadow-xl"
-          >
-            📄 Download CV
-          </button>
-        </div>
+        <div ref={buttonsRef} className="flex justify-center items-center mt-6">
+  <button
+    onClick={downloadCV}
+    className="relative inline-flex items-center justify-center px-10 py-4 overflow-hidden font-bold text-lg text-white transition-all duration-300 rounded-xl shadow-[6px_6px_0_#000] hover:shadow-[0_0_25px_#EA6463] group bg-gradient-to-r from-[#EA6463] to-[#ff9c89] hover:from-[#ff8173] hover:to-[#EA6463]"
+  >
+    <span className="absolute inset-0 w-full h-full bg-gradient-to-r from-[#EA6463] via-[#ff9c89] to-[#EA6463] animate-gradient-x opacity-0 group-hover:opacity-100 transition-opacity duration-700 blur-sm"></span>
+    <span className="relative z-10 flex items-center gap-2">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        className="w-6 h-6 transition-transform duration-300 group-hover:translate-y-1"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke="currentColor"
+      >
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4v16m8-8H4" />
+      </svg>
+      Download CV
+    </span>
+  </button>
+</div>
+
       </div>
     </header>
   )
