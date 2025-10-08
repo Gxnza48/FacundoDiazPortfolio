@@ -141,10 +141,10 @@ const DemoPage = () => {
           id: "portfolio-ilustraciones",
           title: "Ilustration Portfolio",
           videos: [
-            { title: "", url: "https://i.ibb.co/5hJdZRzP/Concepto-moto-bici.png" },
-            { title: "", url: "https://i.ibb.co/7Jjqh2sv/6-Concepto-psj-paloma.png" },
+            { title: "", url: "https://i.ibb.co/nMb7TgHZ/Concepto-moto-bici.png" },
+            { title: "", url: "https://i.ibb.co/9HhdNDK3/6-Concepto-psj-paloma.png" },
             { title: "", url: "https://i.ibb.co/gLvmfKF5/Hoja-psj.png" },
-            { title: "", url: "https://i.ibb.co/cXK8N6qc/concepto-auto.png" },
+            { title: "", url: "https://i.ibb.co/Zz5qpK02/concepto-auto.png" },
             { title: "", url: "https://i.ibb.co/gY78MmT/1-1dise-os-juntos.png" },
             { title: "", url: "https://i.ibb.co/297mZS4/1-Dibujo-jake-kill-v2.png" },
             { title: "", url: "https://i.ibb.co/Myc6jWgY/2-illust-v5.png" },
